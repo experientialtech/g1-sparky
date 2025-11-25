@@ -1,2 +1,8 @@
 .env
 __pycache__/
+*.pyc
+local/models/
+*.gguf
+*.onnx
+*.bin
+*.log
