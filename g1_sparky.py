@@ -21,7 +21,7 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 MODEL = os.getenv("OPENAI_REALTIME_MODEL", "gpt-4o-realtime-preview")
 VOICE = os.getenv("OPENAI_REALTIME_VOICE", "cedar")
-SYSTEM_PROMPT_NAME = os.getenv("COMPANY_PROFILE", "G1_ROBOT")
+SYSTEM_PROMPT_NAME = os.getenv("COMPANY_PROFILE", "SPARKY")
 
 PA_MIC_SOURCE = "alsa_input.usb-HCVsight_FHD_webcamera-02.mono-fallback"
 
