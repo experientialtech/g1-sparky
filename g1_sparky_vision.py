@@ -36,7 +36,7 @@ SPEAKER_CHUNK_BYTES = AUDIO_RATE * S16LE_BYTES // 20  # 50ms = 2400 bytes
 PREBUFFER_BYTES = AUDIO_RATE * S16LE_BYTES // 4       # 250ms = 12000 bytes
 
 # --- Vision Config ---
-CAMERA_INDEX = 0              # /dev/video0
+CAMERA_DEVICE = "/dev/video0"
 IMAGE_SEND_INTERVAL = 5.0     # Send a frame every N seconds
 JPEG_QUALITY = 75             # JPEG compression quality
 CAMERA_WIDTH = 640
@@ -102,8 +102,8 @@ async def main():
         print(f"Speaker pipe: {sink}")
 
     # Init webcam
-    print(f"Opening camera {CAMERA_INDEX}...")
-    cap = cv2.VideoCapture(CAMERA_INDEX)
+    print(f"Opening camera {CAMERA_DEVICE}...")
+    cap = cv2.VideoCapture(CAMERA_DEVICE, cv2.CAP_V4L2)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, CAMERA_WIDTH)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, CAMERA_HEIGHT)
     if not cap.isOpened():
