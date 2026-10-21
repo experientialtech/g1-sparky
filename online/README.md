@@ -63,3 +63,25 @@ The personas live in `online/prompts.py`. If the camera can't be opened, the vis
 
 Tone, energy, and accent come from the persona prompt, not from an API setting. Rocky's deep voice comes from
 a line in his prompt. Without it, excited delivery pushes every voice up into a high register.
+
+## How it behaves
+
+- **Turn-taking:** Gemini decides when you've finished talking. The mic is muted while the robot speaks and
+  for 1.5 s afterwards, so it doesn't hear itself through the speakers. That also means you can't talk over it.
+- **Connection drops:** Google recycles Live connections every few minutes. The scripts reconnect on their own
+  and resume the same conversation. If the saved session has expired (for example after a network outage),
+  they start a fresh conversation. They retry forever, backing off up to 30 s between attempts.
+- **Camera:** frames are sent once per second while connected. If the camera can't be opened, the vision
+  script runs voice-only.
+
+## Files
+
+| File | Purpose |
+|---|---|
+| `live_chat.py` | Shared voice loop: mic, speakers, Gemini Live session, reconnects |
+| `g1_sparky.py` | Voice-only entry point |
+| `g1_sparky_vision.py` | Voice + camera entry point |
+| `prompts.py` | Personas (Sparky, Rocky, and their `_VISION` versions) |
+| `start_rocky.sh` | Starts Rocky with voice + vision |
+| `check_gemini.py` | Checks that the API key in `online/.env` works |
+| `.env.example` | Template for `online/.env` |

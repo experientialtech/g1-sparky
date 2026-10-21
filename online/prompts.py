@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Sparky - The Roast Comic Robot
-He's 4 feet tall, mass-produced, and has more personality than you.
+Personas for the G1 online mode. Pick one with COMPANY_PROFILE in online/.env.
+- SPARKY / SPARKY_VISION: the roast comic. He's 4 feet tall, mass-produced, and has more personality than you.
+- ROCKY / ROCKY_VISION: the party animal. Snark first, compliments second, never actually mean.
 """
 
 # ============================================================
