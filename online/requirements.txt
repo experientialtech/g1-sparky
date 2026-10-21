@@ -1,0 +1,4 @@
+websockets>=13
+python-dotenv
+opencv-python
+numpy
